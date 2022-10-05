@@ -8,7 +8,7 @@ on:
     
   schedule:
     # UTC 01:00 和 UTC 04:00
-    - cron: '0 1 * * *'
+    - cron: '0 1,4 * * *'
   
   # 当star当前仓库时立即执行
   watch:
@@ -25,11 +25,11 @@ jobs:
 
       #上游同步
       - name: Sync with upstream
-        if: github.repository != 'Ttofuuu/AutoCard'
+        if: github.repository != 'GCS-ZHN/AutoCard'
         continue-on-error: true
         uses: aormsby/Fork-Sync-With-Upstream-action@v3.2
         with:
-          upstream_sync_repo: Ttofuuu/AutoCard
+          upstream_sync_repo: GCS-ZHN/AutoCard
           upstream_sync_branch: main
           target_sync_branch: main
           target_repo_token: ${{ secrets.GITHUB_TOKEN }}
